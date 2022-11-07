@@ -7,3 +7,8 @@ Utiliser le modulo pour diviser les troupes entre elles et attaquer de manière 
 
 Comme dans Grim determination possibilité de commander à mon héro les types de summon dans une grande fonction command Friends où il y a tout les types de troupes prêtes.
 Pourquoi pas utiliser pathisclear juste pour mon héro pour le conserver jusqu'à la fin.
+
+Il y a de quoi faire un offset pour rester à distance d'un enemi par exemple, regarder pour ça offset.js.
+
+Pour la double strategy : soit /command /attack /flash /defend
+Pour passer à une phase avec certaines conditions voir fin de page doublestrategy.js. Dès que l'on atteint un certain breakpoint, on avance par exemple puis au breakpoint cela engage une action : soit récolter, attaquer etc ce qui revient à faire la double stratégie. On peut carrément juxtaposer les deux et faire rentrer les breakpoints dans la grande fonction choose strategy qui se sert des autres petites fonctions qui gèrent de manière autonome un aspect seulement. Jouer avec le temps, la position, la vie du héro, l'offset des enemis....
