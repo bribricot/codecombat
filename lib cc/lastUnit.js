@@ -1,0 +1,1 @@
+var lastUnit = hero.built[hero.built.length-1];

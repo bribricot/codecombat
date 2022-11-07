@@ -1,3 +1,10 @@
+//Objectif : Summon 16 units 
+//Human & palisaded must survive for 30 secs or 60 secs
+
+//Context : Your are in the middle, troops are gonna formed like in a rectangle for defend you.
+//Troops are deployed this way, because I pick them from the array and set them defend points, then make the modulo of this array for distributing. 
+
+
 // a % b returns the remainder of a divided by b, this can be used to wrap around to the beginning of an array when an index might be greater than the length
 
 // You start with 360 gold to build a mixture of soldiers and archers.
@@ -6,7 +13,8 @@
 
 // HINTS : Use the modulo operator to send 2 units to each guard point. You need to summon 8 units and move to 4 points, so unitIndex % 4 is the requiered defendIndex 
 
-// a % b gives you the remainder (as an integer) of a / b so 12 % 5 == 2. 
+// a % b gives you the remainder (as an integer) of a / b so 12 % 5 == 2 
+
 // This can be used to wrap around an array, for example:
 // Using the array: 
 // summonTypes = ["soldier","archer","peasant","paladin"] 
@@ -32,10 +40,8 @@ function commandTroops() {
     let friends = hero.findFriends();
     for (let i = 0; i < friends.length; i++) {
         // Use % to wrap around defendPoints based on friends[i]
-        friends[i] % 2 
-
         // Command your minion to defend the defendPoint
-        hero.command(friends[i], "defend", defendPoints);
+        hero.command(friends[i], "defend", defendPoints[i % defendPoints.length]);
     }
 }
 
