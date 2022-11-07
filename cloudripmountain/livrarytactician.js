@@ -1,10 +1,7 @@
-// Hushbaum has been ambushed by ogres!
-// She is busy healing her soldiers, you should command them to fight!
-// The ogres will send more troops if they think they can get to Hushbaum or your archers, so keep them inside the circle!
+
 
 var archerTarget = null;
 
-// Soldiers spread out in a circle and defend.
 function commandSoldier(soldier, soldierIndex, numSoldiers) {
     var angle = Math.PI * 2 * soldierIndex / numSoldiers;
     var defendPos = {x: 41, y: 40};
