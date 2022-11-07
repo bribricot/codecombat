@@ -4,9 +4,11 @@ bin-release/
 cloudripmountain/red/images_of_levels/
 [Oo]bj/
 [Bb]in/
+.DS_Store/
 
 # Other files and folders
 .settings/
+*.DS_Store/
 
 # Executables
 *.swf
