@@ -6,3 +6,4 @@ Double strategy voir plus...
 Utiliser le modulo pour diviser les troupes entre elles et attaquer de manière plus efficace selon argent, faire un bon roulement entre les troupes.
 
 Comme dans Grim determination possibilité de commander à mon héro les types de summon dans une grande fonction command Friends où il y a tout les types de troupes prêtes.
+Pourquoi pas utiliser pathisclear juste pour mon héro pour le conserver jusqu'à la fin.
