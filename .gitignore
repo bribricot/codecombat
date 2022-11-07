@@ -8,7 +8,7 @@ cloudripmountain/red/images_of_levels/
 
 # Other files and folders
 .settings/
-*.DS_Store/
+.DS_Store/
 
 # Executables
 *.swf
