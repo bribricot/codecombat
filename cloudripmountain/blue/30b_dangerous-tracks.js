@@ -1,34 +1,42 @@
-// Protect the village with fire traps.
-// Mine all passages in four directions.
-// You have 80 seconds before the ogres attack.
+/* Hints :
+Command Paladins to "shield" when a fireball gets too close.
+Advance through the forgotten tomb.
+Be wary, traps lay in wait to ruin your day...(top middle and bottom trap)
+All 10 humans must survive...
 
-// Build traps on the line y=114 from x=40 to x=112 with step=24.
-function buildNorthLine() {
-    for (var x = 40; x <= 112; x += 24) {
-        hero.buildXY("fire-trap", x, 114);
+*Paladins can be commanded to shield : 
+hero.findEnemyMissiles() finds all damaging missiles that they can see.
+Missiles will explode when they collide with a unit!
+Shielding mitigates a certain % if incoming damage
+Be sure to be shielding when the fireball gets too close, or they will take full damage!
+*/
+
+
+// The Paladins volunteer to lead the way.
+// Command them to shield against incoming enemyMissiles.
+while(true) {
+    let friends = hero.findFriends();
+    // findEnemyMissiles finds all dangerous enemyMissiles.
+    let enemyMissiles = hero.findEnemyMissiles();
+    let nearestMissiles = hero.findNearest(enemyMissiles);
+
+    for (let i = 0; i < friends.length; i++) {
+        let distance = hero.distanceTo(friends[i]);
+        if (friends[i].type == "paladin") {
+            // Find the projectile nearest to the friends[i]:
+            // If the projectile exists
+            // AND is closer than 10 meters to the paladin:
+            if (enemyMissiles && distance < 10)
+                // Command the friends[i] to "shield":
+                hero.command(friends[i], "shield", nearestMissiles);
+            else
+            // ELSE, when there is no potential danger, advance the paladin:
+                hero.command(friends[i], "move", {x: friends[i].pos.x +1, y: friends[i].pos.y +1});
+        }
+            else
+        // Sortie de boucle paladin : if not a paladin, just advance:
+                hero.command(friends[i], "move", {x: friends[i].pos.x +1, y: friends[i].pos.y +1});
     }
+    // Advance the hero in the x direction:
+    hero.move({x: +1, y: +0})
 }
-
-// Build traps on the line x=140 from y=110 to y=38 with step=18.
-function buildEastLine() {
-    // Complete this function:
-    
-}
-
-// Build traps on the line y=22 from x=132 to x=32 with step=20.
-function buildSouthLine() {
-    // Complete this function:
-    
-}
-
-// Build traps on the line x=20 from y=28 to y=108 with step=16.
-function buildWestLine() {
-    // Complete this function:
-    
-}
-
-buildNorthLine();
-buildEastLine();
-buildSouthLine();
-buildWestLine();
-hero.moveXY(40, 94);
