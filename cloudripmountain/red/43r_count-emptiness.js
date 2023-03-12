@@ -16,11 +16,11 @@ Utilise la méthode "trim" pour couper les espaces blancs du début et de la fin
 It's an useful method when you need to clean strings before processing.
 */
 // Read the riddle.
-var riddle = hero.findNearestEnemy().riddle;
+let riddle = hero.findNearestEnemy().riddle;
 // Trim whitespace from both sides and store in a variable
-var trimmed = riddle.trim();
+let trimmed = riddle.trim();
 // Find the difference between the `riddle` and `trimmed` lengths:
-var difference = (riddle.length - trimmed.length); // 19 riddle et 10 pour riddle
+let difference = (riddle.length - trimmed.length); // 19 riddle et 10 pour riddle
 
 // Use the result and moveNSteps function to move to the spot:
 // This function moves the hero N steps right.
