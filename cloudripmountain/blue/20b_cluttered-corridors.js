@@ -2,7 +2,7 @@
 
 function onHear(event) {
     var word = event.message;
-    // Convert the word to lower case.
+    word = word.toLowerCase();
     
     if (word == "north") {
         pet.moveXY(pet.pos.x, pet.pos.y + 16);
@@ -20,4 +20,4 @@ function onHear(event) {
 }
 
 // Assign the event handler for the pet's "hear" event.
-
+pet.on("hear", onHear);

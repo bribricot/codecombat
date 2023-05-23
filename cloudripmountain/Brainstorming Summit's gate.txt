@@ -12,3 +12,34 @@ Il y a de quoi faire un offset pour rester à distance d'un enemi par exemple, r
 
 Pour la double strategy : soit /command /attack /flash /defend
 Pour passer à une phase avec certaines conditions voir fin de page doublestrategy.js. Dès que l'on atteint un certain breakpoint, on avance par exemple puis au breakpoint cela engage une action : soit récolter, attaquer etc ce qui revient à faire la double stratégie. On peut carrément juxtaposer les deux et faire rentrer les breakpoints dans la grande fonction choose strategy qui se sert des autres petites fonctions qui gèrent de manière autonome un aspect seulement. Jouer avec le temps, la position, la vie du héro, l'offset des enemis....
+
+13 mars : 
+
+Enemies :
+
+Phase I (Avant premiere porte 100px): 
+16 petits munchkins 
+3 Fangrider volants 100
+2 Catapultes 140
+3 petits throwers à pieds 
+2 scouts 75
+2 ogres 120
+? Beams towers de type "tower" ?
+
+Phase II (Entre premiere porte et deuxième porte à 158px):
+
+
+
+Phase III (Entre deuxième porte et troisième porte à 290px):
+
+2 passages potentiels à voir selon les spawns des ennemis.
+Présence de gem pour summon mes meilleures troupes avant la salle finale.
+
+Phase IV (Entre troisième porte et la dernière salle):
+
+
+ 
+Fonctions réutilisables :
+
+Summoning
+Attacking
