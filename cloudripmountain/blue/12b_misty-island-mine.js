@@ -1,52 +1,66 @@
-// Collect gold efficiently by commanding peasants wisely!
-// Peasants should collect coins and build decoys.
+/* 
+Collect gold efficiently by commanding peasants wisely!
 
-// The function should return the best item per target
-// Use an array of ids to ensure no two peasants target the same item.
+Peasants should collect coins and build decoys.
+The function should return the best item per target
+Use an array of ids to ensure no two peasants target the same item.
+Command them to "buildXY" a "decoy" when an enemy is targeting a peasant:
+let enemy = peasant.findNearestEnemy();
+if (enemy.target == peasant) {
+    ...
+}
+To command a peasant to build, use: 
+command(peasant, "buildXY", "decoy", x, y)
+For this level, build your decoys at peasant.pos.x - 2, so the decoy will lead the ogres into the arrow towers.
+
+*/
+
 function findBestItem(friend, excludedItems) {
-    var items = friend.findItems();
-    var bestItem = null;
-    var bestItemValue = 0;
-    for(var i = 0; i < items.length; i++) {
-        var item = items[i];
+    let items = friend.findItems();
+    let bestItem = null;
+    let bestItemValue = 0;
+    for (let i = 0; i < items.length; i++) {
+        let item = items[i];
         // indexOf searches and array for a certain element:
-        var idx = excludedItems.indexOf(item);
         // If the array doesn't contain it, it returns -1
-        // In that case, skip over that item as another peasant is targeting it.
-        if(idx != -1) { continue; }
-        // Finish the function!
-        // Remember bestItemValue should be the highest item.value / distanceTo
-        
+        // In that case, skip over that item as another peasant is targeting it
+        //This way peasant don't compete for coins, because the excludedItems exists, after this is claimedItems, the list where the item's are removed when they're claimed by another peasant.
+        if (excludedItems.indexOf(item) >= 0) { //There is an index? So it can loop again from the beginning, this item is already taken if not.
+            continue;
+        }
+        //bestItemValue should be the highest item.value / distanceTo
+        //Accumulator, we save the highest value and replace it by the next one, and bestItem become the item that we push after in the claimedItems array, that is empty at the beggining of the while true loop.
+        if (bestItemValue < item.value / friend.distanceTo(item)) {
+            bestItemValue = item.value / friend.distanceTo(item);
+            bestItem = item;
+        }
     }
     return bestItem;
 }
 
-// This function checks if you have enough gold for a decoy.
-function enoughGoldForDecoy() {
-    return hero.gold >= 25;
-}
-
-while(true) {
-    var peasants = hero.findByType("peasant");
+while (true) {
+    let peasants = hero.findByType("peasant");
     // Create a new array every loop.
-    var claimedItems = [];
-    for(var i = 0; i < peasants.length; i++) {
-        var peasant = peasants[i];
-        var enemy = peasant.findNearestEnemy();
-        if(enemy) {
+    let claimedItems = [];
+
+    for (let i = 0; i < peasants.length; i++) {
+        let peasant = peasants[i];
+        let enoughGoldForDecoy = hero.gold >= peasant.costOf("decoy");
+        let enemy = peasant.findNearestEnemy();
+        if (enemy && enemy.target == peasant && enoughGoldForDecoy) {
             // If the peasant is the target of the enemy
             // AND the hero has enough gold for a decoy
-            
                 // Command a peasant to build a "decoy":
-                
                 // Add a continue so the peasant doesn't collect coins when building.
+            hero.command(peasant, "buildXY", "decoy", peasant.pos.x - 2, peasant.pos.y);
+            continue;
         }
-        var item = findBestItem(peasant, claimedItems);
-        if(item) {
+        let item = findBestItem(peasant, claimedItems);
+        if (item) {
             // After an item is claimed, stick it in the claimedItems array.
             claimedItems.push(item);
             // Command the peasant to collect the coin:
-            
+            hero.command(peasant, 'move', item.pos);
         }
     }
 }

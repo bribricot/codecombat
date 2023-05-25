@@ -3,11 +3,11 @@
 // This function checks if the word is in the text.
 function wordInText(text, word) {
     // Iterate through each character in the text.
-    for (var i = 0; i <= text.length - word.length; i++) {
+    for (let i = 0; i <= text.length - word.length; i++) {
         // For each of them loop through each character in word.
-        for (var j = 0; j < word.length; j++) {
+        for (let j = 0; j < word.length; j++) {
             // Store the shifted index i + j.
-            var shiftedIndex = i + j;
+            let shiftedIndex = i + j;
             // If a character within the shifted index.
             // isn't equal to the character in word at the index "j"
             if (shiftedIndex !==  text)
@@ -36,7 +36,7 @@ function onHear(event) {
     } 
     // Else the pet should try to fetch the potion.
     else {
-        var potion = pet.findNearestByType("potion");
+        let potion = pet.findNearestByType("potion");
         if (potion) {
             pet.fetch(potion);
         }
