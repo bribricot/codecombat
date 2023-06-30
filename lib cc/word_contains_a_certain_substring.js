@@ -4,13 +4,13 @@
 // This function checks if a word contains a substring.
 function isSubstring(word, substring) {
     // We iterate through the start indexes only.
-    var rightEdge = word.length - substring.length;
+    let rightEdge = word.length - substring.length;
     // Loop through the indexes of the word.
-    for (var i = 0; i <= rightEdge; i++) {
+    for (let i = 0; i <= rightEdge; i++) {
         // For each of them loop through the substring
-        for (var j = 0; j < substring.length; j++) {
+        for (let j = 0; j < substring.length; j++) {
             // Use an offset for the word's indexes.
-            var shiftedIndex = i + j;
+            let shiftedIndex = i + j;
             // If letters aren't the same:
             if (word[shiftedIndex] != substring[j]) {
                 // Check the next start index in the word.
@@ -28,8 +28,8 @@ function isSubstring(word, substring) {
 }
 
 // Loop through all enemies.
-var enemies = hero.findEnemies();
-var i = 0;
+let enemies = hero.findEnemies();
+let i = 0;
 while (i < enemies.length) {
     if (isSubstring(enemies[i].id, "sub")) {
         while (enemies[i].health > 0)

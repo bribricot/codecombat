@@ -31,6 +31,7 @@ for (let i = 0; i < friends.length; i++) {
             // Put the reindeer in occupants at j
             friends[i] = campOccupants[j];
             // Remove the reindeer from the friends array.
+            
             // break out of the inner loop here:
             break;
         }
@@ -41,16 +42,16 @@ for (let i = 0; i < friends.length; i++) {
 for (i = 0; i < friends.length; i++) {
     // If the reindeer is null, use continue:
     if (friends[i] === null)
-    	continue;
+        continue;
     // Look for the first pen with nothing.
     for (let k = 0; k < campOccupants.length; k++) {
     //hero.say("Camp " + k + " is " + campOccupants[k]);
         // If there is nothing, the pen is open:
         if (campOccupants[k] === null) {
             // Put the reindeer in the occupants array.
-            friends[i] = campOccupants[k]; 
+            friends[i] = campOccupants[k];
             // Command the reindeer to move to the pen.
-            friends[i].pos = campPositions[j];
+            friends[i] = campPositions[i];
             // break out early so we don't reassign:
             break;
         }
