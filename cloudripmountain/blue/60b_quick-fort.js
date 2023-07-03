@@ -31,7 +31,7 @@ For loops could be useful to choose each n-th element from an array.
 For example: Choose each third element from the array starting from 1st:
 for (let i = 1; i < array.length; i += 3) {
     hero.say(array[i]);
-}
+}	
 */
 // The foreman stored the list of workers' names as a property.
 let foreman = hero.findNearest(hero.findFriends());
