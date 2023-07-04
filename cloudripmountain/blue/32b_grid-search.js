@@ -37,9 +37,11 @@ let step = 10;
 for (let x = leftBorder; x < rightBorder; x += step) {
     // Use a nested loop to iterate through Y coordinates for each X.
     // Iterate y coordinates from the bottom to top border with step 10.
-    
+    for (let y = bottomBorder; y < topBorder; y += step) { 
         // Move to the point with coordinates X, Y and say anything.
-        
+        hero.moveXY(x, y);
+        hero.say("Youhou?")
+    }
 }
 
 // Allow peasants to check the last point.
