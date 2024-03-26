@@ -33,13 +33,13 @@ function findFriendByName(name) {
 }
 // The sergeant wrote the list of wereyeti peasants' names.
 let sergeant = hero.findNearest(hero.findFriends());
-let wereList = sergeant.wereList;
+let formerList = sergeant.formerList;
 // The list isn't clean and contains redundant spaces. 
-let wereNames = wereList.split(",");
-// Iterate through wereNames array:
-for (let i = 0; i < wereNames.length; i++) {
+let formerNames = formerList.split(",");
+// Iterate through formerNames array:
+for (let i = 0; i < formerNames.length; i++) {
 	// Store a name from the array in a variable, trim the whitespace from the name.
-	let trimedNames = wereNames[i].trim();
+	let trimedNames = formerNames[i].trim();
 	// Save it in the new variable, use findFriendByName function to find a fake yeti:
 	let fakeYetis = findFriendByName(trimedNames);
 	// Command that fake unit to kill them all to the ogre camp:

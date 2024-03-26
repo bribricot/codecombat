@@ -8,5 +8,8 @@ else if (params.typeof === "boolean")
 	console.log("boolean");
 else if (params.typeof === "undefined")
 	console.log("undefined");
-else if ()
+else if (params.typeof === "none")
+	console.log("none");
 }
+
+if (hero.findNearestEnemy() != None)

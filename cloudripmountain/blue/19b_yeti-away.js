@@ -1,5 +1,14 @@
-// Follow one of the peasants and escape from the yeti.
+/* Follow one of the peasants and escape from the yeti.
+There are three ways, but only one is safe. You should follow the right guide.
+You can easily recognize him by his name -- it starts with "Mac".
 
+There are three ways, but only one is safe. You should follow the right guide.
+You can easily recognize him by his name -- it starts with startsWith. 
+
+This function checks if a "phrase" starts with a "word" Compare letter by letter from the word and from the phrase with the same indexes.
+If any of pairs don't coincide, then return false. If all letters in pairs are equal pairwise, then return true.
+
+*/
 function startsWith(phrase, word) {
     if (word.length > phrase.length) {
         return false;
